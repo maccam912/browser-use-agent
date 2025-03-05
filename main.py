@@ -3,6 +3,9 @@ from browser_use import Agent
 import asyncio
 import os
 import sys
+import logging
+
+logging.basicConfig(level=logging.ERROR)
 
 llm = ChatOpenAI(model="openai/gpt-4o-mini", base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
 # llm = ChatOpenAI(model="gpt-4o-mini")
