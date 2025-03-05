@@ -18,6 +18,7 @@ async def main():
         task=task,
         llm=llm,
     )
-    await agent.run()
+    history = await agent.run()
+    print(history.final_result())
 
 asyncio.run(main())
