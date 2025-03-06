@@ -27,8 +27,8 @@ async def main():
         task=task,
         llm=llm,
         # initial_actions=initial_actions,
-        # planner_llm=planner_llm,
-        # planner_interval=4,
+        planner_llm=llm,
+        planner_interval=4,
     )
     history = await agent.run(max_steps=15)
     print("Got this answer: ")
