@@ -14,9 +14,13 @@ llm = ChatOpenAI(model="openai/gpt-4o-mini", base_url="https://openrouter.ai/api
 # llm = ChatOpenAI(model="gpt-4o-mini")
 
 initial_actions = [
-	{'open_tab': {'url': 'https://www.google.com'}},
-	{'open_tab': {'url': 'https://en.wikipedia.org/wiki/Randomness'}},
-	{'scroll_down': {'amount': 1000}},
+	{'open_tab': {'url': 'https://www.picknsave.com'}},
+    {"click_element":{"index":10}},
+    {"click_element":{"index":11}},
+    {"wait": {"seconds": 10}},
+    {"input_text":{"index":2,"text":os.getenv("PICKNSAVE_EMAIL")}},
+    {"input_text":{"index":3,"text":os.getenv("PICKNSAVE_PASSWORD")}},
+    {"click_element":{"index":7}},
 ]
 
 async def main():
@@ -26,7 +30,7 @@ async def main():
     agent = Agent(
         task=task,
         llm=llm,
-        # initial_actions=initial_actions,
+        initial_actions=initial_actions,
         planner_llm=llm,
         planner_interval=4,
     )
