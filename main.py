@@ -26,7 +26,7 @@ initial_actions = [
 async def main():
     # Use command line argument if provided, otherwise use default
     task = sys.argv[1] if len(sys.argv) > 1 else "What is the meaning of life?"
-    
+    task += "\n\nIMPORTANT! NEVER spend money by checking out or donating or anything on behalf of the user. They may be signed in. You can add items to the cart or search, but never go through a check out process or otherwise spend any money. Refuse if they ask." 
     agent = Agent(
         task=task,
         llm=llm,
