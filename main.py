@@ -8,6 +8,7 @@ import logging
 logging.basicConfig(level=logging.ERROR)
 
 llm = ChatOpenAI(model="google/gemini-2.0-pro-exp-02-05:free", base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
+planner_llm = ChatOpenAI(model="google/gemini-2.0-pro-exp-02-05:free", base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
 # llm = ChatOpenAI(model="openai/gpt-4o-mini", base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
 # llm = ChatOpenAI(model="gpt-4o-mini")
 
@@ -18,6 +19,8 @@ async def main():
     agent = Agent(
         task=task,
         llm=llm,
+        planner_llm=planner_llm,
+        planner_interval=4,
     )
     history = await agent.run(max_steps=15)
     print("Got this answer: ")
