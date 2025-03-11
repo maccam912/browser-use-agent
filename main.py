@@ -34,7 +34,7 @@ async def main():
         planner_llm=llm,
         planner_interval=4,
     )
-    history = await agent.run(max_steps=30)
+    history = await agent.run(max_steps=100)
     print("Got this answer: ")
     print(history.final_result())
 
