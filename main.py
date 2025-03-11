@@ -30,7 +30,7 @@ async def main():
     agent = Agent(
         task=task,
         llm=llm,
-        initial_actions=initial_actions,
+        #initial_actions=initial_actions,
         planner_llm=llm,
         planner_interval=4,
     )
