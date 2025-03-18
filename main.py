@@ -7,7 +7,8 @@ import logging
 
 logging.basicConfig(level=logging.ERROR)
 
-llm = ChatOpenAI(model="openai/gpt-4o-mini", base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
+# llm = ChatOpenAI(model="openai/gpt-4o-mini", base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
+llm = ChatOpenAI(model="mistralai/mistral-small-3.1-24b-instruct-2503", base_url="https://openrouter.ai/api/v1", api_key=os.getenv("OPENROUTER_API_KEY"))
 
 initial_actions = [
 	{'open_tab': {'url': 'https://www.picknsave.com'}},
